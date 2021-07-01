@@ -1,4 +1,5 @@
 <template>
+   <app-layout>
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
         <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             <inertia-link v-if="$page.props.user" href="/dashboard" class="text-sm text-gray-700 underline">
@@ -108,6 +109,7 @@
             </div>
         </div>
     </div>
+    </app-layout>
 </template>
 
 <style scoped>
@@ -175,12 +177,17 @@
 </style>
 
 <script>
+
+import AppLayout from '@/Layouts/AppLayout'
     export default {
         props: {
             canLogin: Boolean,
             canRegister: Boolean,
             laravelVersion: String,
             phpVersion: String,
-        }
+        },
+        components: {
+            AppLayout,
+        },
     }
 </script>
